@@ -10,7 +10,11 @@
 // You will have time to focus on it later.
 
 (function() {
+    window.onload = document.getElementById("pass-one").setAttribute("maxlength", "10");
+    let i=0;
 
-    // your code here
-
+    document.getElementById("pass-one").addEventListener("keyup", function(){
+        i = document.getElementById("pass-one").value.length;
+        document.getElementById("validity").innerHTML= i+"/10";
+    })
 })();

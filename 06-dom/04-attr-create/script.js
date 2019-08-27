@@ -12,7 +12,7 @@
 (function() {
     function changeHtml(){
     let image = document.getElementById("source").getAttribute("data-image");
-    let imgElement = document.createElement('img');;
+    let imgElement = document.createElement('img');
     imgElement.src = image;
     let target = document.querySelector("#target");
     target.appendChild(imgElement);
