@@ -18,9 +18,20 @@
         "../../_shared/img/lemon.svg",
         "../../_shared/img/map.svg",
     ];
-
-    document.querySelector(".next").addEventListener("click", function() {
-
+    let image = document.querySelector("img");
+    let i=0;
+    document.querySelector("#next").addEventListener("click", function() {
+        image.src = gallery[i];
+        console.log(image.src);
+        console.log(i);
+        console.log(gallery.length);
+        if (i < gallery.length-1){
+            i++;
+        }
+        else{
+            i=0;
+        }
     })
+
 
 })();
