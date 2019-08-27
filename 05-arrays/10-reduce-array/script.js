@@ -88,6 +88,11 @@
             age: 81,
         },
     ];
+    document.getElementById("run").addEventListener("click", function(){
+        let ageArray = people.map(a => a.age);
+        console.log(ageArray);
+        console.log(ageArray.reduce((a,b) => a + b, 0));
+    })
 
     // your code here
 
