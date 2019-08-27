@@ -10,7 +10,10 @@
 // You will have time to focus on it later.
 
 (function() {
+    function changeHtml() {
+    document.getElementById("target").innerHTML = "owned";
+    }
 
-    // your code here
+    window.onload = changeHtml;
 
 })();

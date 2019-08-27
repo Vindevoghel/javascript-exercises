@@ -10,6 +10,8 @@
 // You will have time to focus on it later.
 
 (function() {
+    var userName = prompt("What's your name?" );
+    alert('Hello ' + userName)
 
     // your code here
 

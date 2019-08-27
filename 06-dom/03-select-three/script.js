@@ -11,6 +11,13 @@
 
 (function() {
 
-    // your code here
+    function changeHtml(){
+        let target = document.querySelectorAll(".target");
+        console.log(target);
+        for (i = 0; i < target.length; i++) {
+            target[i].innerHTML = "owned";
+        }
+    }
+    window.onload = changeHtml;
 
 })();

@@ -10,7 +10,10 @@
 // You will have time to focus on it later.
 
 (function() {
+    let image = document.querySelector("img");
 
-    // your code here
+    image.addEventListener("mouseover", function(){
+        image.src = image.getAttribute("data-hover");
+    })
 
 })();

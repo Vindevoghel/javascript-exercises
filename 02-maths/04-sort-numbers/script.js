@@ -12,13 +12,13 @@
 (function() {
 
     // to get the value of an input: document.getElementById("element-id").value
-    let numberArray =[]
     document.getElementById("run").addEventListener("click", function() {
-        numberArray = (document.getElementById("numbers").value.split(',')).map(Number);
-        console.log(numberArray);
-        numberArray.sort(function(a, b){return a - b});
-        console.log(numberArray);
-        document.getElementById("numbers").innerHTML = numberArray;
+        let numbers = document.getElementById("numbers").value;
+        let numArray = numbers.split(',');
+        console.log(numbers);
+
+        numArray = numArray.sort(function(a,b){return a-b});
+        document.getElementById("numbers").innerHTML = numArray;
     });
 
 

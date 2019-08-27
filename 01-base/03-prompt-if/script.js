@@ -9,7 +9,14 @@
 // NOTE: don't focus on the existing code structure for now.
 // You will have time to focus on it later.
 
-(function() {
+(function cakeDesire() {
+    var cake = prompt("Do you like cake?");
+    if (cake == "Yes") {
+        alert("Congratulations!");
+    }
+    else {
+        alert("More cake for me then :p !");
+    }
 
   // your code here
 

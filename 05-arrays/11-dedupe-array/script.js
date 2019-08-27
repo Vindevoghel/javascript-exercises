@@ -28,6 +28,13 @@
         "cerise",
     ];
 
+    document.getElementById("run").addEventListener("click", function() {
+        let uniqueFruits = fruits.filter(function(item, index) {
+            return fruits.indexOf(item) >= index;
+        });
+        console.log(uniqueFruits);
+    } )
+
     // your code here
 
 })();

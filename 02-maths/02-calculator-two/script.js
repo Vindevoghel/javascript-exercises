@@ -9,10 +9,31 @@
 // NOTE: don't focus on the existing code structure for now.
 // You will have time to focus on it later.
 
-function test() {
-    return true;
-}
-
 (function() {
-    return true;
+    // to get the value of an input: document.getElementById("element-id").value
+    var performOperation = function(operation) {
+        var a = parseInt(document.getElementById("op-one").value);
+        var b = parseInt(document.getElementById("op-two").value);
+        switch (operation) {
+            case "addition":
+                alert(a+b);
+                break;
+            case "substraction":
+                alert(a-b);
+                break;
+            case "multiplication":
+                alert(a*b);
+                break;
+            case "division":
+                alert(a/b);
+                break;
+        }
+    };
+
+    Array.from(document.querySelectorAll("button.operator")).forEach(function($btn) {
+        $btn.addEventListener("click", function() {
+            performOperation($btn.id);
+        });
+    });
 })();
+
