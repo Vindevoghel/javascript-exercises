@@ -10,7 +10,22 @@
 // You will have time to focus on it later.
 
 (function() {
-
-    // your code here
+    let target = document.getElementById("target");
+    let wordArr = target.innerText.split(" ");
+    console.log(wordArr);
+    let word = "", text = "", size = 2;
+    for(i=0; i<wordArr.length; i++){
+        if (size % 10 === 0) {
+            size = 2;
+            word = wordArr[i].toString();
+            text += word.fontsize(size) + " ";
+        } else {
+        word = wordArr[i].toString();
+        console.log(size);
+        text += word.fontsize(size) + " ";
+        }
+        size+= 2;
+    }
+    target.innerHTML = text;
 
 })();

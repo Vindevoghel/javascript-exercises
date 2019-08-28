@@ -10,11 +10,28 @@
 // You will have time to focus on it later.
 
 (function() {
-    window.onload = document.getElementById("pass-one").setAttribute("maxlength", "10");
-    let i=0;
+    const input = document.getElementById("pass-one");
+    const validity = document.getElementById("validity");
 
-    document.getElementById("pass-one").addEventListener("keyup", function(){
-        i = document.getElementById("pass-one").value.length;
-        document.getElementById("validity").innerHTML= i+"/10";
+    input.addEventListener("input", function(){
+
+        let nums = 0;
+
+        for (i=0; i < input.value.length; i++){
+            if (!isNaN(input.value.charAt(i))){
+                nums++
+            }
+        }
+
+
+        if (input.value.length >= 8 && nums >= 2) {
+            validity.innerHTML = "Ok";
+        } else {
+            validity.innerHTML = "Not ok";
+        }
+
     })
+
+    //input.addEventListener("oninput", function(){
+    //})
 })();

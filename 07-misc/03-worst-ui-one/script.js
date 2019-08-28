@@ -10,7 +10,15 @@
 // You will have time to focus on it later.
 
 (function() {
+    let target = document.getElementById("target");
+    let slider = document.getElementById("slider");
 
-    // your code here
+    slider.addEventListener("input", function(){
+        console.log(slider.value);
+        target.innerHTML = "0" + slider.value;
+    })
+
+
+
 
 })();

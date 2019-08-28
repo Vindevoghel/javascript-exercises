@@ -29,9 +29,22 @@
     ];
 
     document.getElementById("run").addEventListener("click", function() {
-        let uniqueFruits = fruits.filter(function(item, index) {
-            return fruits.indexOf(item) >= index;
+
+        //solution one with named function
+        function uniqueArray (array) {
+            return array.filter(function(item, index){
+                return array.indexOf(item) >= index;
+            });
+        }
+
+        console.log(uniqueArray(fruits));
+
+
+        //solution with anonymous function
+        let uniqueFruits = fruits.filter(function (element, index) {
+            return fruits.indexOf(element) >= index;
         });
+
         console.log(uniqueFruits);
     } )
 

@@ -89,8 +89,10 @@
         },
     ];
     document.getElementById("run").addEventListener("click", function(){
+        //creates array
         let ageArray = people.map(a => a.age);
         console.log(ageArray);
+        //reduces array to single value by addition
         console.log(ageArray.reduce((a,b) => a + b, 0));
     })
 
