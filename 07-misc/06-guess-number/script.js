@@ -10,7 +10,29 @@
 // You will have time to focus on it later.
 
 (function() {
-
-    // your code here
+    let userNumber;
+    let numberOfGuess = 0;
+    let numberToGuess = Math.floor(Math.random() * 101);
+    function guessingGame () {
+        userNumber= Number(window.prompt("Guess a number between 0 and 100?" ));
+        if (userNumber > numberToGuess) {
+            alert("lower!");
+            numberOfGuess++;
+            guessingGame();
+        } else if (userNumber < numberToGuess) {
+            alert("higher!");
+            numberOfGuess++;
+            guessingGame()
+        } else if (userNumber === numberToGuess) {
+            alert("That's it! You needed " + numberOfGuess + " guesses!");
+            numberOfGuess = 0;
+            numberToGuess = Math.floor(Math.random() * 101);
+            guessingGame()
+        } else {
+            alert("That's not a number!");
+            guessingGame()
+        }
+    }
+    guessingGame();
 
 })();

@@ -14,13 +14,8 @@
         
         function friday13checker() {
             let year = document.getElementById("year").value;
-            //console.log(year);
             let date = new Date(year);
-            //console.log(date);
-            let month = Number(date.getMonth());
-            //console.log(month);
             let day = Number(date.getDate());
-            //console.log(day);
             let monthArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
             for (month = 0; month < 12; day++){
                 date.setDate(day);
