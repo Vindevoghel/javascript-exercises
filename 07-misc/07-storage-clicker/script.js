@@ -10,20 +10,21 @@
 // You will have time to focus on it later.
 
 (function() {
-    let i;
     let button = document.getElementById("increment");
     let target = document.getElementById("target");
+    let stringcount = localStorage.getItem("count");
 
-    if (localStorage.count) {
-        target.innerHTML = localStorage.getItem("count");
-    } else {
+    if (stringcount == NaN || stringcount == "NaN"){
         i = 0;
-    }
+    } else {
+       i = parseInt(stringcount);
+   }
+
+    target.innerHTML = i;
 
     button.addEventListener("click", function() {
         i++;
         target.innerHTML = i;
-        i = Number(i);
         localStorage.setItem("count", i);
     })
 

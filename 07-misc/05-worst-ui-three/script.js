@@ -10,46 +10,83 @@
 // You will have time to focus on it later.
 
 (function () {
-
-
     const p1 = document.getElementById("part-one");
-    const target = document.getElementById("target");
-    const p1min = p1.getAttribute("data-min");
-    const p1max = p1.getAttribute("data-max");
     const p2 = document.getElementById("part-two");
     const p3 = document.getElementById("part-three");
     const p4 = document.getElementById("part-four");
-    const othermin = p2.getAttribute("data-min");
-    const othermax = p2.getAttribute("data-max");
-    let p1value;
-    let p1button = document.getElementById("fix-part-one");
-    let p2button = document.getElementById("fix-part-two");
+    const target = document.getElementById("target");
+    const p1button = document.getElementById("fix-part-one");
+    const p2button = document.getElementById("fix-part-two");
+    const p3button = document.getElementById("fix-part-three");
+    const p4button = document.getElementById("fix-part-four");
 
 
+    //creates string arrays out of the range of values allowed
+
+    let p1Range = [];
+    for (let i = 460; i <= 499; i++) {
+        i = String(i);
+        p1Range.push(i);
+    }
+
+    let otherRange = [];
+    for (let i = 0; i <= 99; i++) {
+        i = String(i);
+        if(i<10) {
+            i = "0" + i;
+        }
+        otherRange.push(i);
+    }
+
+
+    //iterates through other parts string array per part
+    let h = 0;
     function randomP1() {
-        if (p1.value < p1max) {
-            p1.value++;
-            p1value = p1.value
-        } else if (p1.value === p1max) {
-            p1.value = p1min;
-            p1value = p1.value;
+        p1.value = p1Range[h];
+        target.innerHTML = "0" + p1.value + String(p2.value) + String(p3.value) + String(p4.value);
+        if(h < 39) {
+            h++;
+        } else {
+            h=0;
         }
     }
 
+    let j =0;
     function randomP2() {
-        if (p2.value < 10) {
-            p2.value = "0" + p2.value;
-        }
-        if(p2.value < othermax) {
-            p2.value++;
-        } else if (p2.value === othermax) {
-            p2.value = othermin;
+        p2.value = otherRange[j];
+        target.innerHTML = "0" + p1.value + String(p2.value) + String(p3.value) + String(p4.value);
+       if(j < 99) {
+            j++;
+        } else {
+            j=0;
         }
     }
+
+    let k = 0;
+    function randomP3() {
+        p3.value = otherRange[k];
+        target.innerHTML = "0" + p1.value + String(p2.value) + String(p3.value) + String(p4.value);
+        if(k < 99) {
+            k++;
+        } else {
+            k=0;
+        }
+    }
+
+    let l = 0;
+    function randomP4() {
+        p4.value = otherRange[l];
+        target.innerHTML = "0" + p1.value + String(p2.value) + String(p3.value) + String(p4.value);
+        if(l < 99) {
+            l++;
+        } else {
+            l=0;
+        }
+    }
+
+    //creates counters
 
     let p1interval = setInterval(randomP1, 50);
-    let p2interval = setInterval(randomP2, 50);
-
     p1button.addEventListener("click", function () {
         if (p1button.innerText === "Stop") {
             p1button.innerText = "Start";
@@ -61,6 +98,8 @@
         }
     });
 
+
+    let p2interval = setInterval(randomP2, 50);
     p2button.addEventListener("click", function () {
         if (p2button.innerText === "Stop") {
             p2button.innerText = "Start";
@@ -72,35 +111,37 @@
         }
     });
 
-
-    /*
-    let p1interval = setInterval(function(){
-        if(p1.value < p1max) {
-            p1.value++;
-        } else if (p1.value === p1max) {
-            p1.value = p1min;
-        }}, 50);
-
-    if(p1click == true) {
-        clearInterval(p1interval);
-    }
-
-    window.onload = setInterval(function(){
-        if(p2.value < othermax) {
-            p2.value++;
-        } else if (p2.value === othermax) {
-            p2.value = othermin;
-        }}, 50);*/
-
-
-    /*function randomNumber(value, max, min) {
-        if(value < max) {
-            value ++;
-        } else if (value === max) {
-            value = min;
+    let p3interval = setInterval(randomP3, 50);
+    p3button.addEventListener("click", function () {
+        if (p3button.innerText === "Stop") {
+            p3button.innerText = "Start";
+            clearInterval(p3interval);
+            console.log("stop");
+        } else if(p3button.innerText === "Start") {
+            p3button.innerText = "Stop";
+            p3interval = setInterval(randomP3, 50);
         }
+    });
+
+    let p4interval = setInterval(randomP4, 50);
+    p4button.addEventListener("click", function () {
+        if (p4button.innerText === "Stop") {
+            p4button.innerText = "Start";
+            clearInterval(p4interval);
+            console.log("stop");
+        } else if(p4button.innerText === "Start") {
+            p4button.innerText = "Stop";
+            p4interval = setInterval(randomP4, 50);
+        }
+    });
+
+    function changeText (){
+        target.innerText = "0" + String(p1.value) + String(p2.value) + String(p3.value) + String(p4.value);
     }
 
-    window.onload = setInterval(function(){ randomNumber(p1.value, p1max, p1min); }, 50);*/
+
+    p1.addEventListener("input", changeText());
+
+
 
 })();
