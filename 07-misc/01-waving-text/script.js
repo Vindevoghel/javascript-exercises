@@ -11,7 +11,7 @@
 
 (function() {
     let target = document.getElementById("target");
-    let wordArr = target.innerText.split(" ");
+    let wordArr = target.innerText.split("");
     console.log(wordArr);
     let word = "", text = "", size = 2;
     for(i=0; i<wordArr.length; i++){

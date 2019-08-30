@@ -135,13 +135,5 @@
         }
     });
 
-    function changeText (){
-        target.innerText = "0" + String(p1.value) + String(p2.value) + String(p3.value) + String(p4.value);
-    }
-
-
-    p1.addEventListener("input", changeText());
-
-
 
 })();

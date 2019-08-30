@@ -10,5 +10,13 @@
 // You will have time to focus on it later.
 
 (() => {
-    // your code here
+    document.getElementById("run").addEventListener("click", function (){
+        fetch("../../_shared/api.json")
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                json.append()
+            })
+    })
 })();

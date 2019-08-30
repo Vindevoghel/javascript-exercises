@@ -11,8 +11,12 @@
 
 (() => {
     document.getElementById("run").addEventListener("click", function() {
-        return fetch('http://localhost:3000/heroes')
-            .then(res => res.json())
-            .then(posts => console.log(posts))
-    })
+        fetch("../../_shared/api.json")
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (json) {
+                console.log(json);
+            });})
+
 })();
