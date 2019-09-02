@@ -12,11 +12,11 @@
 (() => {
     document.getElementById("run").addEventListener("click", function() {
         fetch("../../_shared/api.json")
-            .then(function (response) {
-                return response.json();
+            .then(function (heroes) {
+                return heroes.json();
             })
-            .then(function (json) {
-                console.log(json);
+            .then(function (heroes) {
+                console.log(heroes);
             });})
 
 })();

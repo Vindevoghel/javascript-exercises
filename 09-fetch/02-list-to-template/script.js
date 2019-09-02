@@ -15,8 +15,36 @@
             .then(function(response) {
                 return response.json();
             })
-            .then(function(json) {
-                json.append()
-            })
+            .then(function(data) {
+                console.log(data.heroes);
+                let temp = document.getElementById("tpl-hero");
+                let name = temp.content.querySelector(".name");
+                let alterEgo = temp.content.querySelector(".alter-ego");
+                let powers = temp.content.querySelector(".powers");
+
+                for(let i=0; i < data.heroes.length; i++) {
+                    name.innerHTML = data.heroes[i].name;
+                    alterEgo.innerHTML = data.heroes[i].alterEgo;
+                    powers.innerHTML = data.heroes[i].abilities;
+                    let clone = temp.content.cloneNode(true);
+                    document.getElementById("target").appendChild(clone);
+                }
+        })
+
     })
+
+
 })();
+
+
+/*
+<template id="tpl-hero">
+                        <li class="hero">
+                            <h4 class="title">
+                                <strong class="name"></strong>
+                                <em class="alter-ego"></em>
+                            </h4>
+                            <p class="powers"></p>
+                        </li>
+                    </template>
+ */
