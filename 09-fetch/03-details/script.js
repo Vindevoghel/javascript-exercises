@@ -16,16 +16,18 @@
                 return response.json();
             })
             .then(function (data) {
-                let temp = document.getElementById("tpl-hero");
-                let name = temp.content.querySelector(".name");
-                let alterEgo = temp.content.querySelector(".alter-ego");
-                let powers = temp.content.querySelector(".powers");
+                console.log(data);
+                let template = document.getElementById("tpl-hero");
+                let name = template.content.querySelector(".name");
+                let alterEgo = template.content.querySelector(".alter-ego");
+                let powers = template.content.querySelector(".powers");
                 let target = document.getElementById("target");
-                i = document.getElementById("hero-id").value;
 
+                i = document.getElementById("hero-id").value;
                 name.innerHTML = data.heroes[i].name;
                 alterEgo.innerHTML = data.heroes[i].alterEgo;
                 powers.innerHTML = data.heroes[i].abilities;
+
                 let clone = temp.content.cloneNode(true);
                 target.appendChild(clone);
             })
